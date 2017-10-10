@@ -32,7 +32,7 @@ namespace net.authorize.sample
             request.month = month;
 
             // Instantiate the controller that will call the service
-            var controller = new getAUJobSummaryController(request);
+        var controller = new getAUJobSummaryController(request);
             controller.Execute();
 
             // Get the response from the service (errors contained if any)
