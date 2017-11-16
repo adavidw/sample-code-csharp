@@ -41,14 +41,14 @@ namespace net.authorize.sample.CustomerProfiles
             request.transactionRequest = transactionRequest;
             request.hostedPaymentSettings = settings;
 
-            // instantiate the contoller that will call the service
+            // instantiate the controller that will call the service
             var controller = new getHostedPaymentPageController(request);
             controller.Execute();
 
             // get the response from the service (errors contained if any)
             var response = controller.GetApiResponse();
 
-            //validate
+            // validate response
             if (response != null && response.messages.resultCode == messageTypeEnum.Ok)
             {
                 Console.WriteLine("Message code : " + response.messages.message[0].code);
