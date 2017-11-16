@@ -23,7 +23,6 @@ namespace net.authorize.sample
                 Item            = ApiTransactionKey,
             };
 
-
             var creditCard = new creditCardType
             {
                 cardNumber      = "4111111111111111",
@@ -106,7 +105,16 @@ namespace net.authorize.sample
             }
             else
             {
-                Console.WriteLine("Null Response.");
+                if (controller.GetErrorResponse().messages.message.Length > 0)
+                {
+                    Console.WriteLine("Customer Profile Creation Failed.");
+                    Console.WriteLine("Error Code: " + response.messages.message[0].code);
+                    Console.WriteLine("Error message: " + response.messages.message[0].text);
+                }
+                else
+                {
+                    Console.WriteLine("Null Response.");
+                }
             }
 
             return response;
